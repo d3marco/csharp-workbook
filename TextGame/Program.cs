@@ -54,9 +54,10 @@ namespace TextGame
                 Console.WriteLine("IF THE SPIDER HITS HIGHER THAN YOU, YOU WILL DIE");
                 Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 Thread.Sleep(2000);
-                // Random random = new Random();
-                // int fdmg1 = Random.Next(3, 10);
-                // int edmg1 = Random.Next(1, 5);
+                // Random randomNub = new Random();
+                // int fdmg1 = Random.Next(3, 11);
+                // int edmg1 = Random.Next(1, 6); 
+                //the random number gen will not display properly- im getting an error message
                 Console.WriteLine("you hit a");
                 Console.WriteLine("the spider hits a");
                 Thread.Sleep(2000);
