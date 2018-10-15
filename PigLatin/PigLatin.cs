@@ -1,21 +1,57 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace PigLatin
 {
     class Program
     {
-        public static void Main()
+        static void Main(string[] args)
         {
-            // your code goes here
-
-            // leave this command at the end so your program does not close automatically
-            Console.ReadLine();
-        }
+          Console.WriteLine("Enter a word");
+          Console.ReadLine();  
         
-        public static string TranslateWord(string word)
-        {
-            // your code goes here
-            return word;
         }
-    }
-}
+    
+          public static string TranslateWord(string str)
+        {
+            string pigWord = "";
+            string sentence = "";
+            string firstLetter;
+            string restOfWord;
+            string vowels = "AEIOUaeiou";
+            int letterPosition;
+
+            while (sentence.ToLower() != "quit")
+            {
+                Console.WriteLine("Please enter a word or sentence:");
+
+                sentence = Console.ReadLine();
+
+                foreach (string newstr in sentence.Split())
+                {
+                    firstLetter = str.Substring(0, 1);
+                    restOfWord = str.Substring(1, str.Length - 1);
+
+                    letterPosition = vowels.IndexOf(firstLetter);
+
+                    if (letterPosition == -1)
+                    {
+                        // it's a consonant
+                        pigWord = restOfWord + firstLetter + "ay";
+                    }
+                    else
+                    {
+                        // it's a vowel
+                        pigWord = str + "yay";
+                    } // end if
+
+                    Console.Write("{0} ", pigWord);
+                    return newstr;
+
+                } 
+            } 
+        } 
+    } 
+} 
