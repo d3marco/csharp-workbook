@@ -26,7 +26,7 @@ namespace TicTacToe
             Console.ReadLine();
         }
 
-        public static int GetInput(int row , int column )
+        public static int[1] GetInput()
         {
             Console.WriteLine("Player " + playerTurn);
             Console.WriteLine("Enter Row:");
@@ -39,6 +39,7 @@ namespace TicTacToe
         {
         // your code goes here
         //change to bool
+        
         }
 
         public static bool CheckForWin()
