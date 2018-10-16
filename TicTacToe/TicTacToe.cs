@@ -18,6 +18,7 @@ namespace TicTacToe
             {
                 DrawBoard();
                 GetInput();
+                
 
             } while (!CheckForWin() && !CheckForTie());
 
@@ -25,7 +26,7 @@ namespace TicTacToe
             Console.ReadLine();
         }
 
-        public static void GetInput()
+        public static int GetInput(int row , int column )
         {
             Console.WriteLine("Player " + playerTurn);
             Console.WriteLine("Enter Row:");
@@ -34,9 +35,10 @@ namespace TicTacToe
             int column = int.Parse(Console.ReadLine());
         }
 
-        public static void PlaceMark(int row, int column)
+        public static bool PlaceMark(int row, int column)
         {
         // your code goes here
+        //change to bool
         }
 
         public static bool CheckForWin()
