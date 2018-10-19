@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+// using System.Collections.Generic;
+// using System.Linq;
 using System.Text;
 
 namespace PigLatin
@@ -14,7 +14,7 @@ namespace PigLatin
         
         }
     
-          public static string TranslateWord(string str)
+          public String TranslateWord(string word)
         {
             string pigWord = "";
             string sentence = "";
@@ -29,10 +29,10 @@ namespace PigLatin
 
                 sentence = Console.ReadLine();
 
-                foreach (string newstr in sentence.Split())
+                foreach (string text in sentence.Split())
                 {
-                    firstLetter = str.Substring(0, 1);
-                    restOfWord = str.Substring(1, str.Length - 1);
+                    firstLetter = text.Substring(0, 1);
+                    restOfWord = text.Substring(1, text.Length - 1);
 
                     letterPosition = vowels.IndexOf(firstLetter);
 
@@ -44,12 +44,12 @@ namespace PigLatin
                     else
                     {
                         // it's a vowel
-                        pigWord = str + "yay";
+                        pigWord = text + "yay";
                     } // end if
 
                     Console.Write("{0} ", pigWord);
-                    return newstr;
-
+                    return word;
+                
                 } 
             } 
         } 
