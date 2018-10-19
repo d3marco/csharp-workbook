@@ -14,6 +14,7 @@ namespace RockPaperScissors
 
             // leave this command at the end so your program does not close automatically
             Console.ReadLine();
+            
         
         }
         
@@ -55,5 +56,20 @@ namespace RockPaperScissors
             
             return hand1 + ' ' + hand2;
         }
+        // public static bool test()
+        // {
+        //     return 0;
+
+        //     CompareHands("Paper", "Paper") == 0 &&
+        //     CompareHands("Paper", "Rock") == 1 &&
+        //     CompareHands("Paper", "Scissors") == 2 &&
+        //     CompareHands("Rock", "Paper") == 2 &&
+        //     CompareHands("Rock", "Rock") == 0 &&
+        //     CompareHands("Rock", "Scissors") == 1 &&
+        //     CompareHands("Scissors", "Paper") == 1 &&
+        //     CompareHands("Scissors", "Scissors") == 0 &&
+        //     CompareHands("Scissors", "Rock") == 2;
+            
+        // }
     }
 }
