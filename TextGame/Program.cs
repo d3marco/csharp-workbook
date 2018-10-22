@@ -1,4 +1,5 @@
 ﻿using System;
+<<<<<<< HEAD
 using System.Threading;
 
 namespace TextGame
@@ -64,6 +65,16 @@ namespace TextGame
             }
         
 
+=======
+
+namespace TextGame
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+>>>>>>> d2fd3277576d0b313a2a44f3bca7c718c5dd1178
         }
     }
 }
