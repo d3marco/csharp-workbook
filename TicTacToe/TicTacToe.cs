@@ -26,28 +26,50 @@ namespace TicTacToe
             Console.ReadLine();
         }
 
-        public static int[1] GetInput()
+        public static void GetInput()
         {
             Console.WriteLine("Player " + playerTurn);
             Console.WriteLine("Enter Row:");
             int row = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter Column:");
             int column = int.Parse(Console.ReadLine());
+			
+			PlaceMark(row, column);
+			
+			// playerTurn == "X" ? playerTurn = "O" : playerTurn = "X";
         }
 
-        public static bool PlaceMark(int row, int column)
+              public static bool PlaceMark(int row, int column)
         {
-        // your code goes here
-        //change to bool
-        
+			if (board[row][column] != "") {
+			   Console.WriteLine ( "The row column is already taken");
+			   return false;
+			}
+		
+			board [row][column] = playerTurn;
+					
+			return true;
         }
-
-        public static bool CheckForWin()
+         public static bool CheckForWin()
         {
-            // your code goes here
+			if ( HorizontalWin()) 
+            {
+                return true;
+            } 
+            else if ( VerticalWin()) 
+            {  
+             return true;
+            } 
+			else if (DiagonalWin())
+            {
+              return true;  
+            } 
 
-            return false;
+			
+			return false;
+			
         }
+
 
         public static bool CheckForTie()
         {
@@ -56,25 +78,36 @@ namespace TicTacToe
             return false;
         }
         
-        public static bool HorizontalWin()
+           public static bool HorizontalWin()
         {
-        // your code goes here
-
-        return false;
+			for (int i = 0; i <board.GetLength(0); i++ ) {
+				for (int j = 0; j <board.GetLength(0) - 1; j++ ) {
+				if (board[i][j] != board[i][j+1])
+				   return false;
+				}
+			}
+			return true;
         }
 
         public static bool VerticalWin()
         {
-            // your code goes here
-
-            return false;
+           for (int i = 0; i <board.GetLength(0); i++ ) {
+				for (int j = 0; j <board.GetLength(0) - 1; j++ ) {
+				if (board[j][i] != board[j+1][i])
+				   return false;
+				}
+			}
+			return true;
         }
 
         public static bool DiagonalWin()
         {
-            // your code goes here
+			if (board[0][2] !=   board[1][1]) return false;
+			if (board[1][1] !=   board[2][0]) return false;
+			if (board[0][0] !=   board[1][1]) return false;
+			if (board[1][1] !=   board[2][2]) return false;
 
-            return false;
+            return true;
         }
 
         public static void DrawBoard()
