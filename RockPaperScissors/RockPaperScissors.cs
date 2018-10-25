@@ -8,53 +8,72 @@ namespace RockPaperScissors
         {
             Console.WriteLine("Enter hand 1:");
             string hand1 = Console.ReadLine().ToLower();
-            Console.WriteLine("Enter hand 2:");
-            string hand2 = Console.ReadLine().ToLower();
-            Console.WriteLine(CompareHands(hand1, hand2));
+            string hand2 = GetComputerHand().ToLower();
+            Console.WriteLine("You choose "
+            + hand1 + " and the computer choose " + hand2);
 
             // leave this command at the end so your program does not close automatically
-            Console.ReadLine();
-            
-        
+            // Console.ReadLine();
+            int outCome = CompareHands(hand1, hand2);
+            if (outCome == 0)
+            {
+                Console.WriteLine("You tied!");
+            }
+            else if (outCome == 1)
+            {
+                Console.WriteLine("Hand 1 wins");
+            }
+            else
+            {
+                Console.WriteLine("Hand 2 wins");
+            }
+
         }
-        
-        public static string CompareHands(string hand1, string hand2)
+
+        public static int CompareHands(string hand1, string hand2)
         {
             // Your code here
-            if (hand1 == "rock" && hand2 == "rock")
+            if (hand1 == hand2)
             {
-                Console.WriteLine("Tie");
-            } else if (hand1 == "rock" && hand2 == "scissors")
+                return 0;
+            }
+            else if (hand1 == "rock" && hand2 == "scissors")
             {
-                Console.WriteLine("hand1 wins!");
-            } else if (hand1 == "rock" && hand2 == "paper")
+                return 1;
+            }
+            else if (hand1 == "rock" && hand2 == "paper")
             {
-                Console.WriteLine("hand2 wins!");
-            } else if (hand1 == "scissors" && hand2 == "rock")
+                return 2;
+            }
+            else if (hand1 == "scissors" && hand2 == "rock")
             {
-                Console.WriteLine("hand2 wins");
-            } else if (hand1 == "scissors" && hand2 == "paper")
+                return 1;
+            }
+            else if (hand1 == "scissors" && hand2 == "paper")
             {
-                Console.WriteLine("hand1 wins");
-            } else if (hand1 == "scissors" && hand2 == "scissors")
-             {
-                 Console.WriteLine("Tie");
-             } else if (hand1 == "paper" && hand2 == "paper")
-             {
-                 Console.WriteLine("Tie");
-             } else if (hand1 == "paper" && hand2 == "scissors")
-             {
-                 Console.WriteLine("hand2 wins");
-             } else if (hand1 == "paper" && hand2 == "rock")
-             {
-                 Console.WriteLine("hand1 wins");
-             } else
-             {
-                 Console.WriteLine("try again");
-             }
-        
-            
-            return hand1 + ' ' + hand2;
+                return 1;
+                // } else if (hand1 ==  hand2)
+                //  {
+                //      Console.WriteLine("Tie");
+                //  } else if (hand1 == "Paper" && hand2 == "Paper")
+                //  {
+                //      Console.WriteLine("Tie");
+            }
+            else if (hand1 == "paper" && hand2 == "scissors")
+            {
+                return 2;
+            }
+            else if (hand1 == "paper" && hand2 == "rock")
+            {
+                return 1;
+            }
+            else
+            {
+                Console.WriteLine("Try again");
+            }
+
+
+            return 0;
         }
         // public static bool test()
         // {
@@ -69,7 +88,28 @@ namespace RockPaperScissors
         //     CompareHands("Scissors", "Paper") == 1 &&
         //     CompareHands("Scissors", "Scissors") == 0 &&
         //     CompareHands("Scissors", "Rock") == 2;
-            
-        // }
+
+
+        public static String GetComputerHand()
+        {
+            Random Rnd = new Random();
+            int randomInt = Rnd.Next(1, 4);
+
+            if (randomInt == 1)
+            {
+                return "Rock";
+
+            }
+            else if (randomInt == 2)
+            {
+                return "Paper";
+            }
+            else
+            {
+                return "Scissors";
+            }
+
+        }
     }
 }
+
