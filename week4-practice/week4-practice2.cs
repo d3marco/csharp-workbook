@@ -36,12 +36,12 @@ namespace Week4practice2
 //Deepth first before breath first
 
 //Stack<String> var*stackname = new Stack<String>();
-var.Push("John");
-var.Push("Sam");
-var.Push("Paul");
+// var.Push("John");
+// var.Push("Sam");
+// var.Push("Paul");
 
-while(name.Count > 0)
-{
-    String currentName = names.Pop();
-    Console.WriteLine("Processing" +currentName);
-}
+// while(name.Count > 0)
+// {
+//     String currentName = names.Pop();
+//     Console.WriteLine("Processing" +currentName);
+// }
