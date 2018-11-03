@@ -14,6 +14,7 @@ namespace RockPaperScissors
 
             // leave this command at the end so your program does not close automatically
             // Console.ReadLine();
+
             int outCome = CompareHands(hand1, hand2);
             if (outCome == 0)
             {
@@ -26,12 +27,15 @@ namespace RockPaperScissors
             else
             {
                 Console.WriteLine("Hand 2 wins");
+            } try {
+                
             }
 
         }
 
         public static int CompareHands(string hand1, string hand2)
         {
+    
             // Your code here
             if (hand1 == hand2)
             {
@@ -69,11 +73,9 @@ namespace RockPaperScissors
             }
             else
             {
-                Console.WriteLine("Try again");
+                throw new Exception("Please enter a valid hand!");
             }
-
-
-            return 0;
+                return 3;
         }
         // public static bool test()
         // {
