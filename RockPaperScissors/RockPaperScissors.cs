@@ -24,58 +24,69 @@ namespace RockPaperScissors
             {
                 Console.WriteLine("Hand 1 wins");
             }
-            else
+            else if (outCome == 2)
             {
                 Console.WriteLine("Hand 2 wins");
-            } try {
-                
+            } else {
+                Console.WriteLine("Please enter a valid hand");
+               Console.ReadLine();
+
             }
+
 
         }
 
         public static int CompareHands(string hand1, string hand2)
         {
-    
-            // Your code here
-            if (hand1 == hand2)
+            try
             {
-                return 0;
+                // Your code here
+                if (hand1 == hand2)
+                {
+                    return 0;
+                }
+                else if (hand1 == "rock" && hand2 == "scissors")
+                {
+                    return 1;
+                }
+                else if (hand1 == "rock" && hand2 == "paper")
+                {
+                    return 2;
+                }
+                else if (hand1 == "scissors" && hand2 == "rock")
+                {
+                    return 1;
+                }
+                else if (hand1 == "scissors" && hand2 == "paper")
+                {
+                    return 1;
+                    // } else if (hand1 ==  hand2)
+                    //  {
+                    //      Console.WriteLine("Tie");
+                    //  } else if (hand1 == "Paper" && hand2 == "Paper")
+                    //  {
+                    //      Console.WriteLine("Tie");
+                }
+                else if (hand1 == "paper" && hand2 == "scissors")
+                {
+                    return 2;
+                }
+                else if (hand1 == "paper" && hand2 == "rock")
+                {
+                    return 1;
+                }
+                else
+                {
+                    throw new Exception("Please enter a valid hand!");
+
+                }
             }
-            else if (hand1 == "rock" && hand2 == "scissors")
+            catch
             {
-                return 1;
+                Console.WriteLine("Please enter another choice!");
+                 return 3;
             }
-            else if (hand1 == "rock" && hand2 == "paper")
-            {
-                return 2;
-            }
-            else if (hand1 == "scissors" && hand2 == "rock")
-            {
-                return 1;
-            }
-            else if (hand1 == "scissors" && hand2 == "paper")
-            {
-                return 1;
-                // } else if (hand1 ==  hand2)
-                //  {
-                //      Console.WriteLine("Tie");
-                //  } else if (hand1 == "Paper" && hand2 == "Paper")
-                //  {
-                //      Console.WriteLine("Tie");
-            }
-            else if (hand1 == "paper" && hand2 == "scissors")
-            {
-                return 2;
-            }
-            else if (hand1 == "paper" && hand2 == "rock")
-            {
-                return 1;
-            }
-            else
-            {
-                throw new Exception("Please enter a valid hand!");
-            }
-                return 3;
+
         }
         // public static bool test()
         // {
