@@ -18,10 +18,11 @@ public class Program
         x.EnterShip(luke, 0);
         x.EnterShip(han, 1);
         station1.DockShip(x, 1);
-        Roster(station1);
+        PrintRoster(station1);
     }
-    private static void Roster(Station station)
+    private static void PrintRoster(Station station)
     {
+    
         foreach (KeyValuePair<int, Ship> ships in station.Docked)
         {
             Console.WriteLine("Ship {0} contains:", ships.Value.Name);
