@@ -123,7 +123,7 @@ using System.Collections.Generic;
             }
              public void PlaceCheckers()
             {
-                for (var i = 0; i < Checkers.Count; i++)
+                for (int i = 0; i < Checkers.Count; i++)
                 {
                     int[] position = Checkers[i].Position;
                     Grid[position[0]][position[1]] = Checkers[i].Symbol;
@@ -131,13 +131,13 @@ using System.Collections.Generic;
             }
              private Checker SelectChecker(int row, int column)
             {
-                var position = new int[] {row, column};
-                var checker = Checkers.Where(x => x.Position[0] == row && x.Position[1] == column).SingleOrDefault();
+                int[] position = new int[] {row, column};
+                Checker checker = Checkers.Where(x => x.Position[0] == row && x.Position[1] == column).SingleOrDefault();
                 return checker;
             }
              public void MoveChecker(int selRow, int selColumn, int row, int column)
             {
-                var checker = SelectChecker(selRow, selColumn);
+                Checker checker = SelectChecker(selRow, selColumn);
                 
                 if(checker.Color == player) //Prevent player from moving other players checkers
                 {
@@ -154,7 +154,7 @@ using System.Collections.Generic;
              }
              public void RemoveChecker(int row, int column)
             {
-                var checker = SelectChecker(row, column);
+                Checker checker = SelectChecker(row, column);
                 if(checker != null)
                 {
                     Checkers.Remove(checker);
@@ -164,14 +164,14 @@ using System.Collections.Generic;
             {
                  if(player == "White")
                 {
-                    var blackCheckerCount = Checkers.Where(x => x.Color == "Black").Count();
+                    int blackCheckerCount = Checkers.Where(x => x.Color == "Black").Count();
                      if(blackCheckerCount == 0)
                     {
                         return true;
                     }
                 }
                 else{
-                    var whiteCheckerCount = Checkers.Where(x => x.Color == "White").Count();
+                    int whiteCheckerCount = Checkers.Where(x => x.Color == "White").Count();
                      if(whiteCheckerCount == 0)
                     {
                         return true;
