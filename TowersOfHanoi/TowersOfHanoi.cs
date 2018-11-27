@@ -6,26 +6,26 @@ namespace TowersOfHanoi
 {
     class Program
     {
-        public void Main()
+        public static void Main(string[] args)
         {
             Game game = new Game();
-            CheckForWin();
+            game.CheckForWin();
         }
         
     }
-    class Block
+   public class Block
     {
-        int weight { public get; private set; }
+       public int weight {get; private set;}
     }
-    class Tower
+    public class Tower
     {
-        Stack<int> blocks = new Stack<int>();
+       public Stack<Block> blocks = new Stack<Block>();
 
     }
-    class Game
+    public class Game
     {
         // Console.WriteLine("Which one?");
-        Dictionary<int, string> towers = new Dictionary<int, string>();
+       public Dictionary<string, Tower> towers = new Dictionary<string, Tower>();
 
         public Game()
         {
@@ -33,18 +33,30 @@ namespace TowersOfHanoi
             towers.Add("B", new Tower());
             towers.Add("C", new Tower());
 
-            Block block1 = new Block();
-            Block block2 = new Block();
-            Block block3 = new Block();
-            block1.weight = 1;
-            block2.weight = 10;
-            block3.weight = 100;
+            Block block1 = new Block(10);
+            Block block2 = new Block(20);
+            Block block3 = new Block(30);
+            
+            
 
             towers["A"].blocks.Push(block3);
             towers["A"].blocks.Push(block2);
             towers["A"].blocks.Push(block1);
 
+            Console.WriteLine("How many blocks would you like?");
+            Console.ReadLine();
+           int NumbOfblocks = Console.ReadLine();
+           Console.WriteLine("What tower do you pick?");
+           Console.ReadLine();
+
+        
+            foreach(int block in NumbOfblocks)
+            {
+                count++;
+
+            }
         }
+        
         public string print()
         {
             foreach (var towerKey in towers.Keys)
@@ -87,7 +99,7 @@ namespace TowersOfHanoi
         }
         public bool CheckForWin()
         {
-            if (towers["B"].Count() || towers["C"].Count() == 4)
+            if (towers["B"].blocks.Count || towers["C"].blocks.Count == 4)
             {
                 Console.WriteLine("You Won!");
                 return true;
