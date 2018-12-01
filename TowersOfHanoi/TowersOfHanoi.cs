@@ -15,7 +15,13 @@ namespace TowersOfHanoi
     }
    public class Block
     {
-       public int weight {get; private set;}
+       public int Weight {get; private set;}
+
+       public Block(int initalWeight)
+       {
+        this.Weight = initalWeight;
+        
+       }
     }
     public class Tower
     {
@@ -33,45 +39,41 @@ namespace TowersOfHanoi
             towers.Add("B", new Tower());
             towers.Add("C", new Tower());
 
+        
             Block block1 = new Block(10);
             Block block2 = new Block(20);
             Block block3 = new Block(30);
             
-            
-
             towers["A"].blocks.Push(block3);
             towers["A"].blocks.Push(block2);
             towers["A"].blocks.Push(block1);
 
             Console.WriteLine("How many blocks would you like?");
-            Console.ReadLine();
-           int NumbOfblocks = Console.ReadLine();
-           Console.WriteLine("What tower do you pick?");
-           Console.ReadLine();
+            var NumOfBLocks = Console.ReadLine();
+        //    Console.WriteLine("What tower do you pick?");
+        //    Console.ReadLine();
 
         
-            foreach(int block in NumbOfblocks)
-            {
-                count++;
-
-            }
         }
-        
-        public string print()
+       
+        public void printBoard()
         {
             foreach (var towerKey in towers.Keys)
             {
                 foreach (Block block in towers[towerKey].blocks)
                 {
-                    Console.WriteLine(" Tower :" + towerKey + " Weight: " + block.weight);
+                    
+                  Console.WriteLine(" Tower :" + towerKey + " Weight: " + block.Weight);
+                
+                    
                 }
             }
         }
-        public string MovePiece(string popOff, string pushOn)
+        public void MovePiece(string popOff, string pushOn)
         {
             Block block = towers[popOff].blocks.Pop();
             towers[pushOn].blocks.Push(block);
-            print();
+            printBoard();
 
         }
         public bool isLegal(string popOff, string pushOn)
@@ -87,7 +89,7 @@ namespace TowersOfHanoi
             Block popOffBlock = towers[popOff].blocks.Peek();
             Block pushOnBlock = towers[pushOn].blocks.Peek();
 
-            if (popOffBlock.weight > pushOnBlock.weight)
+            if (popOffBlock.Weight > pushOnBlock.Weight)
             {
                 return false;
 
@@ -99,7 +101,7 @@ namespace TowersOfHanoi
         }
         public bool CheckForWin()
         {
-            if (towers["B"].blocks.Count || towers["C"].blocks.Count == 4)
+            if (towers["B"].blocks.Count == 4 || towers["C"].blocks.Count == 4)
             {
                 Console.WriteLine("You Won!");
                 return true;
