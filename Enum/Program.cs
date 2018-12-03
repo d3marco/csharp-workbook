@@ -2,21 +2,25 @@
 
 namespace Enum
 {
-    enum PrimaryColors
+    enum WeekDays
     {
-        RED, BLUE, YELLOW
+        MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY
     }
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Enum!");
-            string primaryCombined = combinePrimaryColors(PrimaryColors.RED, PrimaryColors.YELLOW);
-            Console.WriteLine("Red + Yellow = "+primaryCombined);
+            Console.WriteLine("When is your birthday?");
+            string birthDay = Console.ReadLine();
+            // Console.WriteLine("Red + Yellow = "+primaryCombined);
         }
-        public static String combinePrimaryColors(PrimaryColors color1, PrimaryColors color2)
+        public static string Age(this HtmlHelper helper, DateTime birthday)
         {
-            
+            DateTime now = DateTime.Today;
+            int age = now.Year - birthday.Year;
+            if (now < birthday.AddYears(age)) age--;
+
+            return age.ToString();
         }
     }
 }
