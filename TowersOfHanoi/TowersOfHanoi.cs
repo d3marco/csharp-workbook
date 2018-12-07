@@ -27,6 +27,7 @@ namespace TowersOfHanoi
     {
        public Stack<Block> blocks = new Stack<Block>();
 
+
     }
     public class Game
     {
@@ -48,26 +49,36 @@ namespace TowersOfHanoi
             towers["A"].blocks.Push(block2);
             towers["A"].blocks.Push(block1);
 
-            Console.WriteLine("How many blocks would you like?");
-            var NumOfBLocks = Console.ReadLine();
+            while (CheckForWin())
+         {
+    
+                Console.WriteLine(printBoard());
+
+            } 
+
+            // Console.WriteLine("How many blocks would you like?");
+            // var NumOfBLocks = Console.ReadLine();
         //    Console.WriteLine("What tower do you pick?");
         //    Console.ReadLine();
 
         
         }
        
-        public void printBoard()
+        public string printBoard()
         {
+            string board = "";
             foreach (var towerKey in towers.Keys)
             {
                 foreach (Block block in towers[towerKey].blocks)
                 {
                     
-                  Console.WriteLine(" Tower :" + towerKey + " Weight: " + block.Weight);
-                
+                  board += " Tower :" + towerKey + " Weight: " + block.Weight;
+                  
+
                     
                 }
             }
+            return board;
         }
         public void MovePiece(string popOff, string pushOn)
         {
