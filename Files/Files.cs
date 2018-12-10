@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Files
 {
@@ -6,7 +7,12 @@ namespace Files
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("This is a file");
         }
+        static void CreateFile(string filename)
+        {
+
+        }
+        static void 
     }
 }
