@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 
 namespace Checkpoint1
@@ -8,11 +9,18 @@ namespace Checkpoint1
         static void Main(string[] args)
         {
             FirstStep.Counter();
+            Thread.Sleep(200);
+
             SecondStep.Ask();
-            Thread.Sleep(2000);
+            Thread.Sleep(20);
+
             ThirdStep.Factorial();
-            Thread.Sleep(2000);
+            Thread.Sleep(20);
+
             FourthStep.Chance();
+            Thread.Sleep(20);
+
+            FifthStep.Max();
             Console.ReadLine();
 
         }
@@ -104,29 +112,40 @@ namespace Checkpoint1
                 {
                     numOfGuess++;
                     Console.WriteLine("Guess is too high, try again. ");
-                    Console.WriteLine("The number of guesses is " + numOfGuess);
+                    Console.WriteLine("You have " + numOfGuess + " guesses left");
                 }
                 else if (guess < winNumber)
                 {
                     numOfGuess++;
                     Console.WriteLine("Guess is too low, try again. ");
-                    Console.WriteLine("The number of guesses is " + numOfGuess);
+                    Console.WriteLine("You have " + numOfGuess + " guesses left");
                 }
                 else if (guess == winNumber)
                 {
                     numOfGuess++;
                     Console.WriteLine("You win! Good job. ");
-                    Console.WriteLine("The number of guesses is " + numOfGuess);
+                    Console.WriteLine("You have " + numOfGuess + " guesses left");
                     winner = true;
                 }
 
             }
         }
 
-        class FifthStep
+    }
+    class FifthStep
+    {
+
+        //Write a program and ask the user to enter a series of numbers separated by comma.
+        //    Find the maximum of the numbers and display it on the console.
+        //    For example, if the user enters “5, 3, 8, 1, 4", the program should display 8.
+        public static void Max()
         {
-            public static void 
-                4342 5801 06546633 0522 936
+            Console.WriteLine("Enter a series of number seprated by commas:");
+            string userNumb = Console.ReadLine();
+
+            string[] split = userNumb.Split(",");
+            Console.WriteLine(split.Max());
+
         }
 
     }
